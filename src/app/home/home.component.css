@@ -1,0 +1,63 @@
+.col{
+  display: flex;
+  text-align: center;
+  align-content: center;
+}
+
+table {
+  align: center;
+  vertical-align: middle;
+  border-collapse: separate;
+  -webkit-border-horizontal-spacing: 2rem;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+
+h1, h2, h3 {
+  font-family: Bilbo, cursive;
+  color: #FFD700;
+}
+
+h2{
+  font-size: 7rem;
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
+
+#content {
+  background-color: #720E31;
+  border-color: #FFD700;
+
+}
+
+.center{
+  //padding-top: 33%;
+}
+
+#content p{
+  color: #FFD700;
+}
+
+p, td, th{
+  font-size: 2rem;
+}
+
+td, th{
+  align-content: center;
+  text-align: center;
+  color: #FFD700;
+}
+
+th{
+  text-decoration:underline;
+}
+
+tbody{
+  vertical-align: middle;
+}
