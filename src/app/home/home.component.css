@@ -21,7 +21,7 @@ table {
 
 h1, h2, h3 {
   font-family: Bilbo, cursive;
-  color: #FFD700;
+  color: #D9BB6E;
 }
 
 h2{
@@ -32,7 +32,7 @@ h2{
 
 #content {
   background-color: #720E31;
-  border-color: #FFD700;
+  border-color: #D9BB6E;
 
 }
 
@@ -41,7 +41,7 @@ h2{
 }
 
 #content p{
-  color: #FFD700;
+  color: #D9BB6E;
 }
 
 p, td, th{
@@ -51,7 +51,7 @@ p, td, th{
 td, th{
   align-content: center;
   text-align: center;
-  color: #FFD700;
+  color: #D9BB6E;
 }
 
 th{
