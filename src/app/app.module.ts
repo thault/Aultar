@@ -8,6 +8,8 @@ import { PhotosComponent } from './photos/photos.component';
 import { RegistryComponent } from './registry/registry.component';
 import { AboutComponent } from './about/about.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
+import { TravelComponent } from './travel/travel.component';
+import { WeddingComponent } from './weddingparty/wedding.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { RsvpComponent } from './rsvp/rsvp.component';
     PhotosComponent,
     RegistryComponent,
     AboutComponent,
-    RsvpComponent
+    RsvpComponent,
+    TravelComponent,
+    WeddingComponent
   ],
   imports: [
     BrowserModule,

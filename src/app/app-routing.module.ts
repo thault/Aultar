@@ -5,12 +5,17 @@ import { PhotosComponent} from './photos/photos.component';
 import { RegistryComponent} from './registry/registry.component';
 import { AboutComponent} from './about/about.component';
 import {RsvpComponent} from './rsvp/rsvp.component';
+import {TravelComponent} from './travel/travel.component';
+import {WeddingComponent} from './weddingparty/wedding.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'photos', component: PhotosComponent},
   {path: 'registry', component: RegistryComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'rsvp', component: RsvpComponent},
+  {path: 'travel', component: TravelComponent},
+  {path: 'weddingparty', component: WeddingComponent},
 ];
 
 @NgModule({
