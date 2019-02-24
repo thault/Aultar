@@ -1,4 +1,8 @@
 p {
+  text-align: left;
   font-family: "Andale Mono";
-  text-align: center;
+}
+
+h2 {
+  font-family: "Andale Mono";
 }
