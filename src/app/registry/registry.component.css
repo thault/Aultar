@@ -3,3 +3,64 @@ p {
   text-align: center;
   font-family: "Andale Mono";
 }
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  width: 18rem;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.card-img-top {
+  width: 100%;
+  clear: both;
+  padding-top: 44%;
+  padding-bottom: 44%;
+  vertical-align : middle;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+svg{
+  margin-top: -50%;
+  margin-bottom: -50%;
+  vertical-align : middle;
+}
+
+.regbtn{
+  width: 95%;
+  background-color: #132657;
+  border: none;
+  color: #D9BB6E;
+  margin-bottom: -10%;
+}
+
+.regbtn:hover{
+  background-color: #720E31;
+}
+
+.regH{
+  font-family: Bilbo, cursive;
+  font-size: 6rem;
+}
+
+.indented{
+  margin: -2% 9.55% -3.5%;
+}
+
+.regP{
+  text-align: justify;
+  font-size: 2rem;
+}
