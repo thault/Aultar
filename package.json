@@ -11,10 +11,11 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.1.10",
+    "@angular/animations": "^6.1.0",
     "@angular/cdk": "^7.3.3",
     "@angular/common": "^6.1.0",
     "@angular/core": "^6.1.0",
+    "@angular/flex-layout": "^6.0.0-beta.18",
     "@angular/forms": "^6.1.0",
     "@angular/http": "^6.1.0",
     "@angular/material": "^7.3.3",

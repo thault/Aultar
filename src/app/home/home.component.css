@@ -11,12 +11,6 @@ table {
   -webkit-border-horizontal-spacing: 2rem;
 }
 
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-}
 
 
 h1, h2, h3 {
@@ -60,4 +54,17 @@ th{
 
 tbody{
   vertical-align: middle;
+}
+
+.img {
+  width: 100%;
+  margin-bottom: 18%;
+}
+.card-picture {
+  width: 23%;
+  margin-bottom: 2%;
+}
+.container {
+  min-height: 100%;
+  width: 100%;
 }
