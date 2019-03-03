@@ -13,7 +13,7 @@ export class RsvpComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog(): void {
-    this.dialog.open(RsvpDialogComponent, {data: { name: 'angular' }});
+  public openDialog() {
+    this.dialog.open(RsvpDialogComponent);
   }
 }

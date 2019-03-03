@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RsvpDialogComponent} from '../rsvp-dialog/rsvp-dialog.component';
 
 
-
 @NgModule({
   declarations: [
     RsvpComponent,
