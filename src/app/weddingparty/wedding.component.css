@@ -3,3 +3,16 @@ h1 {
   text-align: center;
   font-family: "Andale Mono";
 }
+
+.img {
+  width: 100%;
+  margin-bottom: 18%;
+}
+.card-picture {
+  width: 23%;
+  margin-bottom: 2%;
+}
+.container {
+  min-height: 100%;
+  width: 100%;
+}

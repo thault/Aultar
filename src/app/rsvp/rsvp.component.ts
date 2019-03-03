@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RsvpComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    //public password: string
+  ) { }
 
   ngOnInit() {
   }
