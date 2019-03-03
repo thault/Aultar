@@ -1,5 +1,21 @@
-<div class="container-fluid">
+-<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+
   <h1>RSVP</h1>
-  <div class="center">
-  </div>
+
+  <br>
+
+  <form>
+    <p class="reg">Please enter your household key:</p>
+    <input type="text" name="householdId">
+    <br><br>
+    <!--<button class="regbtn btn btn-primary" (click)="openDialog()">Submit</button>-->
+
+    <button mat-raised-button (click)="openDialog()">Submit</button>
+
+    <!--<a href="/rsvp" class="regbtn btn btn-primary" ng-click="launch('create')">Submit</a>-->
+  </form>
+
+  <br>
+
+
 </div>
