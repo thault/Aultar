@@ -52,6 +52,10 @@ h1, h2, h3 {
   padding-left: 15px;
 }
 
+nav ul li{
+  text-align: left;
+}
+
 @media (min-width: 990px){
   .navbar-nav{
     float:none;
