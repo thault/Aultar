@@ -13,7 +13,16 @@ export class RsvpComponent implements OnInit {
   ngOnInit() {
   }
 
-  public openDialog() {
-    this.dialog.open(RsvpDialogComponent);
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RsvpDialogComponent, {
+      width: '600px',
+      height: '400px',
+      position: { top: '0', bottom: '0', left: '0', right: '98' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
+
 }
