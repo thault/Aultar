@@ -56,19 +56,25 @@ svg{
   font-size: 6rem;
 }
 
-.indented{
-  /* Default */
-  margin-left: 9.55%;
-  /* IE-OLD */
-  margin-left: expression((33% - 16rem)/2);
-  /* Firefox */
-  margin-left: -moz-calc((33% - 16rem)/2);
-  /* WebKit */
-  margin-left: -webkit-calc((33% - 16rem)/2);
-  /* Opera */
-  margin-left: -o-calc((33% - 16rem)/2);
-  /* Standard */
-  margin: -2% calc((33% - 16rem)/2) -3.5%;
+.indented {
+  margin-left: 6%;
+}
+
+@media(min-width: 768px) {
+  .indented {
+    /* Default */
+    margin-left: 9.55%;
+    /* IE-OLD */
+    margin-left: expression((33% - 16rem)/2);
+    /* Firefox */
+    margin-left: -moz-calc((33% - 16rem)/2);
+    /* WebKit */
+    margin-left: -webkit-calc((33% - 16rem)/2);
+    /* Opera */
+    margin-left: -o-calc((33% - 16rem)/2);
+    /* Standard */
+    margin: -2% calc((33% - 16rem)/2) -3.5%;
+  }
 }
 
 .regP{
