@@ -57,7 +57,18 @@ svg{
 }
 
 .indented{
-  margin: -2% 9.55% -3.5%;
+  /* Default */
+  margin-left: 9.55%;
+  /* IE-OLD */
+  margin-left: expression((33% - 16rem)/2);
+  /* Firefox */
+  margin-left: -moz-calc((33% - 16rem)/2);
+  /* WebKit */
+  margin-left: -webkit-calc((33% - 16rem)/2);
+  /* Opera */
+  margin-left: -o-calc((33% - 16rem)/2);
+  /* Standard */
+  margin: -2% calc((33% - 16rem)/2) -3.5%;
 }
 
 .regP{
