@@ -1,7 +1,7 @@
 p {
   font-size: 2em;
   text-align: center;
-  font-family: "Andale Mono";
+  font-family: "Andale Mono", monospace;
 }
 
 .card {
