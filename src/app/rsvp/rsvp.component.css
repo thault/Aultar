@@ -3,3 +3,36 @@ h1 {
   text-align: center;
   font-family: "Andale Mono";
 }
+
+p {
+  text-align: center;
+  font-size: 1.2em;
+  font-family: "Andale Mono";
+}
+
+form {
+  text-align: center;
+  font-family: "Andale Mono";
+}
+
+input {
+  text-align: center;
+}
+
+.mat-raised-button {
+  background-color: #132657;
+  color: #D9BB6E;
+}
+
+.mat-raised-button:hover {
+  background-color: #720E31;
+}
+
+.btn {
+  background-color: #132657;
+  color: #D9BB6E;
+}
+
+.regbtn:hover {
+  background-color: #720E31;
+}

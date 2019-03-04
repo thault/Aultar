@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule, MatCheckboxModule, MatTableModule, MatDialogModule, } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { RsvpComponent } from './rsvp/rsvp.component';
 import { TravelComponent } from './travel/travel.component';
 import { WeddingComponent } from './weddingparty/wedding.component';
 import { FAQComponent } from './faq/faq.component';
+import { RsvpDialogComponent } from './rsvp-dialog/rsvp-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,19 +25,20 @@ import { FAQComponent } from './faq/faq.component';
     RsvpComponent,
     TravelComponent,
     WeddingComponent,
-    FAQComponent
-
+    FAQComponent,
+    RsvpDialogComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    MatCardModule,
-    MatIconModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FlexLayoutModule
+    MatCheckboxModule,
+    MatTableModule,
+    MatDialogModule,
+  ],
+  entryComponents: [
+    RsvpDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

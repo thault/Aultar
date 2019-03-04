@@ -26,6 +26,10 @@ h1, h2, h3 {
   background-color: #720E31;
 }
 
+.regbtn:hover {
+  background-color: #720E31;
+}
+
 .page-header {
   text-align:center;
 }
