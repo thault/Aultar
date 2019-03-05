@@ -149,14 +149,28 @@ tbody{
   }
 
   .row-eq-height {
-    align-content: flex-start;
-    margin-left: 28%;
-    margin-right: 50%;
-    float: left;
+    align-content: center;
+    margin-left: 20%;
+  }
+
+  #content {
+    min-width: 407px;
   }
 }
 
-@media(max-width: 452px){
+@media(max-width: 620px){
+  .row-eq-height {
+    margin-left: 10%;
+  }
+}
+
+@media(max-width: 553px){
+  .row-eq-height {
+    margin-left: 5%;
+  }
+}
+
+@media(max-width: 444px){
   .row-eq-height{
     margin-left: 0;
   }
