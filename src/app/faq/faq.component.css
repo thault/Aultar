@@ -1,17 +1,22 @@
 h3 {
   font-size: xx-large;
-  text-align: center;
   font-family: "Andale Mono", serif;
 }
 
 p {
-  text-align: center;
   font-family: "Andale Mono", serif;
 }
 
 h2 {
-  text-align: center;
   font-family: "Andale Mono", serif;
-
   font-size: large;
+}
+
+.indented {
+  margin-left: 6%;
+}
+
+.regH{
+  font-family: Bilbo, cursive;
+  font-size: 6rem;
 }
