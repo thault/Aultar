@@ -32,6 +32,10 @@ h1, h2, h3 {
 
 .page-header {
   text-align:center;
+  background-image: url("../assets/flower.gif");
+  background-repeat: no-repeat;
+  background-size: auto;
+
 }
 
 .navbar {
