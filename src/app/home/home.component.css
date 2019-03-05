@@ -1,17 +1,8 @@
-.col{
-  display: flex;
-  text-align: center;
-  align-content: center;
-}
-
 table {
-  align: center;
   vertical-align: middle;
   border-collapse: separate;
   -webkit-border-horizontal-spacing: 2rem;
 }
-
-
 
 h1, h2, h3 {
   font-family: Bilbo, cursive;
@@ -27,11 +18,6 @@ h2{
 #content {
   background-color: #720E31;
   border-color: #D9BB6E;
-  height: 588px;
-}
-
-.center{
-  //padding-top: 33%;
 }
 
 #content p{
@@ -56,15 +42,122 @@ tbody{
   vertical-align: middle;
 }
 
-.img {
-  width: 100%;
-  margin-bottom: 18%;
+.row-eq-height {
+  display: table;
 }
-.card-picture {
-  width: 23%;
-  margin-bottom: 2%;
+
+.row-eq-height > .col-sm-4 {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
 }
-.container {
-  min-height: 100%;
-  width: 100%;
+
+.img-home {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media(max-width: 1203px) {
+  #img1 {
+    display: none;
+  }
+
+  #img1-col {
+    display: none;
+  }
+
+  .row-eq-height {
+    max-width: 80%;
+    margin-left: 10%;
+  }
+}
+
+@media(max-width: 920px){
+  .row-eq-height {
+    max-width: 82%;
+    margin-left: 9%;
+  }
+}
+
+@media(max-width: 905px){
+  .row-eq-height {
+    max-width: 84%;
+    margin-left: 8%;
+  }
+}
+
+@media(max-width: 890px){
+  .row-eq-height {
+    max-width: 86%;
+    margin-left: 7%;
+  }
+}
+
+@media(max-width: 875px){
+  .row-eq-height {
+    max-width: 88%;
+    margin-left: 6%;
+  }
+}
+
+@media(max-width: 860px){
+  .row-eq-height {
+    max-width: 90%;
+    margin-left: 5%;
+  }
+}
+
+@media(max-width: 845px){
+  .row-eq-height {
+    max-width: 92%;
+    margin-left: 4%;
+  }
+}
+
+@media(max-width: 830px){
+  .row-eq-height {
+    max-width: 94%;
+    margin-left: 3%;
+  }
+}
+
+@media(max-width: 815px){
+  .row-eq-height {
+    max-width: 96%;
+    margin-left: 2%;
+  }
+}
+
+@media(max-width: 800px){
+  .row-eq-height {
+    max-width: 98%;
+    margin-left: 1%;
+  }
+}
+
+@media(max-width: 785px){
+  .row-eq-height {
+    max-width: 100%;
+    margin-left: 0%;
+  }
+}
+
+@media(max-width: 767px) {
+  #img2-col {
+    display: none;
+  }
+
+  .row-eq-height {
+    align-content: flex-start;
+    margin-left: 28%;
+    margin-right: 50%;
+    float: left;
+  }
+}
+
+@media(max-width: 452px){
+  .row-eq-height{
+    margin-left: 0;
+  }
 }

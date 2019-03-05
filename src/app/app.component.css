@@ -56,6 +56,46 @@ nav ul li{
   text-align: left;
 }
 
+.navbar-inverse {
+  background-color: #132657;
+}
+
+.navbar-toggler {
+  display: block;
+  background-color: transparent;
+  border: none;
+  margin-top: 3px;
+  cursor: pointer;
+  outline:none;
+
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+button[aria-expanded="true"] {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.collapsed {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
 @media (min-width: 990px){
   .navbar-nav{
     float:none;
@@ -96,5 +136,8 @@ nav ul li{
     display: table;
     table-layout: fixed;
   }
-}
 
+  .navbar-toggler {
+    display: none;
+  }
+}
