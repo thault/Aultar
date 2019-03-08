@@ -15,6 +15,7 @@ import { TravelComponent } from './travel/travel.component';
 import { WeddingComponent } from './weddingparty/wedding.component';
 import { FAQComponent } from './faq/faq.component';
 import { RsvpDialogComponent } from './rsvp-dialog/rsvp-dialog.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { RsvpDialogComponent } from './rsvp-dialog/rsvp-dialog.component';
     MatCheckboxModule,
     MatTableModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ],
   entryComponents: [
     RsvpDialogComponent,
