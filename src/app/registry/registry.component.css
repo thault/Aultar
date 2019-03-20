@@ -73,7 +73,7 @@ svg{
     /* Opera */
     margin-left: -o-calc((33% - 16rem)/2);
     /* Standard */
-    margin: -2% calc((33% - 16rem)/2) -3.5%;
+    margin: 0 calc((33% - 16rem)/2) -3.5%;
   }
 }
 

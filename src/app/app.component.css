@@ -4,6 +4,7 @@
 
 h1, h2, h3 {
   font-family: Bilbo, cursive;
+  margin: 0;
 }
 
 .btn {
@@ -32,11 +33,29 @@ h1, h2, h3 {
 
 .page-header {
   text-align:center;
+/* Background Image
+  background-image: url("../assets/flower.gif");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: auto;
+*/
+  margin: 0;
+  padding: 30px 0;
+}
+
+
+.page-header h1:before {
+  display: none;
+}
+
+.page-header h1:after {
+  display: none;
 }
 
 .navbar {
   border-radius: 0;
   border: none;
+  margin-top: -1px;
 }
 
 #navbar-brand{
@@ -58,6 +77,7 @@ nav ul li{
 
 .navbar-inverse {
   background-color: #132657;
+  margin-bottom: 0;
 }
 
 .navbar-toggler {
@@ -88,10 +108,10 @@ button[aria-expanded="true"] {
   transform: rotate(0deg);
 }
 
-.bar1, .bar2, .bar3 {
+.bar {
   width: 35px;
   height: 5px;
-  background-color: black;
+  background-color: #D9BB6E;
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -139,5 +159,30 @@ button[aria-expanded="true"] {
 
   .navbar-toggler {
     display: none;
+  }
+
+  .page-header h1:before {
+    background-image: url("../assets/gold-leaf.png");
+    background-size: 100px 100px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    content: "";
+    margin-top: -5px;
+    margin-left: -75px;
+    position: absolute;
+    transform: scaleX(-1);
+  }
+
+  .page-header h1:after {
+    background-image: url("../assets/gold-leaf.png");
+    background-size: 100px 100px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    content: "";
+    margin-top: -5px;
+    margin-left: -25px;
+    position: absolute;
   }
 }
