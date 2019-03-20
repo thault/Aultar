@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { RsvpDialogComponent } from '../rsvp-dialog/rsvp-dialog.component';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-rsvp',
@@ -8,21 +9,22 @@ import { RsvpDialogComponent } from '../rsvp-dialog/rsvp-dialog.component';
   styleUrls: ['./rsvp.component.css']
 })
 export class RsvpComponent implements OnInit {
-  constructor(public dialog: MatDialog) { }
 
-  ngOnInit() {
+  constructor(public dialog: MatDialog) { }
+  ngOnInit(): void {
   }
 
   openDialog(): void {
+
     const dialogRef = this.dialog.open(RsvpDialogComponent, {
       width: '600px',
       height: '400px',
-      position: { top: '0', bottom: '0', left: '0', right: '98' }
+      position: { top: '0', bottom: '0', left: '0', right: '98' },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe(result => {console.log('The dialog was closed');
     });
+
   }
 
 }

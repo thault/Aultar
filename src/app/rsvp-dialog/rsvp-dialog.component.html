@@ -1,9 +1,54 @@
-<div class="container-fluid">
-  <p>
-    rsvp works
-  </p>
+<h4 class="header">RSVP Information</h4>
 
-  <div>
-    <button mat-raised-button (click)="close()">Close</button>
-  </div>
+<div class="container-fluid">
+  <p>RSVP?</p>
+  <select required="required">
+    <option value="yes">YES, I am going!</option>
+    <option value="no">Sorry, no</option>
+  </select>
 </div>
+
+<br><br>
+<div class="container-fluid">
+  <p>Dietary Restrictions?</p>
+  <select>
+    <option value="veggie">Vegetarian</option>
+    <option value="gluten">Gluten Free</option>
+    <option value="vegan">Vegan</option>
+    <option value="lactose">Lactose Intolerant</option>
+  </select>
+</div>
+
+<br><br>
+<div class="container-fluid">
+  <p>Song Requests?</p>
+  <input type="text" name="songId">
+</div>
+
+<!--<mat-form-field>
+  <mat-label>RSVP?</mat-label>
+  <select>
+    <option value="yes">YES, I am going!</option>
+    <option value="no">Sorry, no</option>
+  </select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Dietary Restriction?</mat-label>
+  <select>
+    <option value="veggie">Vegetarian</option>
+    <option value="gluten">Gluten Free</option>
+    <option value="vegan">Vegan</option>
+    <option value="lactose">Lactose Intolerant</option>
+  </select>
+</mat-form-field>
+
+<mat-label>Song Requests?</mat-label>
+<mat-form-field>
+  <input type="text" name="songId">
+</mat-form-field>-->
+
+<br><br>
+<input class="save" type="submit" value="submit">
+<!--<button mat-raised-button type="button">Submit</button>-->
+<button mat-raised-button (click)="close()">Close</button>
