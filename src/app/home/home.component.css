@@ -71,7 +71,7 @@ tbody{
 }
 
 #img1-col, #img2-col {
-  width: 24%;
+  width: 33%;
 }
 
 #content {
@@ -80,7 +80,7 @@ tbody{
 
 .row-eq-height {
   vertical-align: center;
-  min-height: calc((100vw * .3639));
+  min-height: calc((100vw * .425));
 }
 
 .col-sm-4 {
@@ -95,6 +95,7 @@ tbody{
 img {
   max-height: 100%;
   max-width: 100%;
+  min-height: 100%;
   width: auto;
   height: auto;
   position: absolute;
@@ -121,7 +122,7 @@ img {
 @media(max-width: 767px){
   .row-eq-height {
     background-color: #720E31;
-    min-height: calc((100vw * .6));;
+    min-height: calc((100vw * .7));
   }
 
   p, td, th {
