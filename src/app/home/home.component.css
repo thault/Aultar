@@ -80,14 +80,14 @@ tbody{
 
 .row-eq-height {
   vertical-align: center;
-  min-height: expression((100vw * .425));
+  height: expression((100vw * .425));
   /* Firefox */
-  min-height: -moz-calc((100vw * .425));
+  height: -moz-calc((100vw * .425));
   /* WebKit */
-  min-height: -webkit-calc((100vw * .425));
+  height: -webkit-calc((100vw * .425));
   /* Opera */
-  min-height: -o-calc((100vw * .425));
-  min-height: calc((100vw * .425));
+  height: -o-calc((100vw * .425));
+  height: calc((100vw * .425));
 }
 
 .col-sm-4 {
@@ -129,14 +129,14 @@ img {
 @media(max-width: 767px){
   .row-eq-height {
     background-color: #720E31;
-    min-height: expression((100vw * .7));
+    height: expression((100vw * .7));
     /* Firefox */
-    min-height: -moz-calc((100vw * .7));
+    height: -moz-calc((100vw * .7));
     /* WebKit */
-    min-height: -webkit-calc((100vw * .7));
+    height: -webkit-calc((100vw * .7));
     /* Opera */
-    min-height: -o-calc((100vw * .7));
-    min-height: calc((100vw * .7));
+    height: -o-calc((100vw * .7));
+    height: calc((100vw * .7));
   }
 
   p, td, th {
