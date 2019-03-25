@@ -13,11 +13,6 @@
   font-size: 6rem;
 }
 
-.panel-heading {
-  background-color: #132657;
-  color: #D9BB6E;
-}
-
 .panel-heading:hover {
   cursor: pointer;
 }
@@ -25,7 +20,7 @@
 .panel {
   margin-bottom: 10px;
 }
-
+/*
 .even > .panel-heading {
   background-color: #132657;
   color: #D9BB6E;
@@ -46,7 +41,7 @@
   background-color: #E5D19D;
   color: black;
   border-top-color: #E5D19D;
-}
+}*/
 
 .panel-collapse > .panel-body > p {
   margin-bottom: 0;
