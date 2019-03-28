@@ -116,7 +116,7 @@ button[aria-expanded="true"] {
   transition: 0.4s;
 }
 
-@media (min-width: 990px){
+@media (min-width: 868px){
   .navbar-nav{
     float:none;
     margin: 0 auto;

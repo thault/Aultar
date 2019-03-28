@@ -42,7 +42,7 @@ svg{
   background-color: #132657;
   border: none;
   color: #D9BB6E;
-  margin-bottom: -10%;
+  margin-bottom: 0;
 }
 
 .regbtn:hover{
@@ -56,6 +56,7 @@ svg{
 
 .indented {
   margin-left: 6%;
+  margin-right: 6%;
 }
 
 @media(min-width: 768px) {
@@ -78,4 +79,15 @@ svg{
 .regP{
   text-align: justify;
   font-size: 2.25rem;
+}
+
+.btn-disabled {
+  cursor: default;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.btn-disabled:hover {
+  background-color: #cccccc;
 }
