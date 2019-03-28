@@ -1,3 +1,8 @@
+.regH{
+  font-family: Bilbo, cursive;
+  font-size: 6rem;
+}
+
 h1 {
   font-size: 6rem;
   text-align: center;
@@ -34,6 +39,11 @@ h1 {
   float: none;
   display: table-cell;
   width: 33.3333333%
+}
+
+.indented {
+  margin-left: 6%;
+  margin-right: 6%;
 }
 
 .title {
