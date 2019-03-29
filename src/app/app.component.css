@@ -197,3 +197,7 @@ button[aria-expanded="true"] {
 .btn-disabled:hover {
   background-color: #cccccc;
 }
+
+.disabledd {
+  background-color: transparent !important;
+}
