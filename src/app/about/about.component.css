@@ -1,62 +1,61 @@
-h1 {
-  text-align: center;
-  font-family: "Andale Mono";
-}
-
 h2 {
   font-family: Bilbo, cursive;
 }
 
-.regH{
+.regH {
+  text-align: center;
   font-family: Bilbo, cursive;
   font-size: 6rem;
 }
 
-p{
-  text-align: justify;
-  margin-left: 7px;
-  margin-right: 7px;
-}
-
-@media(max-width: 767px) {
-  .row-eq-height {
-    display: inline-block;
-    margin: 0;
-  }
-}
-
-.table {
-  display: table;
-  height: 250px;
-  vertical-align: center;
-}
-
 .row-eq-height {
-  display: table-row;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
-.row-eq-height2 {
-  display: table-row;
+.d-flex {
+  display: -ms-flexbox;
+  display: flex;
 }
 
-img
-{
-  height:75%;
-  width:80%;
-}
-
-.col-sm-2 {
-  float: none;
-  display: table-cell;
-}
-
-.indented {
-  margin-left: 6%;
-  margin-right: 6%;
+.align-items-stretch {
+  -ms-flex-align: stretch;
+  align-items: stretch;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
+  display: flex;
+  flex-flow: column;
+}
+
+.mat-card-header {
+  width: 100%;
+  text-align: center;
+  flex: 0 1 auto;
+}
+
+.card-img-top {
+  flex: 0 1 auto;
+  width: 80%;
+  height: auto;
+  margin-bottom: 30px;
+  margin-left: 10%;
+}
+
+.card-body {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 20px;
+  text-align: justify;
+
+  display: -ms-flexbox;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
 }
