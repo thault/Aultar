@@ -4,5 +4,29 @@ h1 {
 }
 
 h2 {
-  font-family: "Andale Mono";
+  font-family: Bilbo, cursive;
+}
+
+.regH{
+  font-family: Bilbo, cursive;
+  font-size: 6rem;
+}
+
+.indented {
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.col-container {
+  display: table; /* Make the container element behave like a table */
+  width: 100%; /* Set full-width to expand the whole page */
+}
+
+.col {
+  display: table-cell; /* Make elements inside the container behave like table cells */
 }

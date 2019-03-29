@@ -114,7 +114,15 @@ img {
 }
 
 .row-eq-height {
-  width: 100%;
+  margin: 10px;
+  width: expression(100% - 20px);
+  /* Firefox */
+  width: -moz-calc(100% - 20px);
+  /* WebKit */
+  width: -webkit-calc(100% - 20px);
+  /* Opera */
+  width: -o-calc(100% - 20px);
+  width: calc(100% - 20px);
 }
 
 #img1-col > img {

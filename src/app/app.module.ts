@@ -11,7 +11,7 @@ import { PhotosComponent } from './photos/photos.component';
 import { RegistryComponent } from './registry/registry.component';
 import { AboutComponent } from './about/about.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
-import { TravelComponent } from './travel/travel.component';
+//import { TravelComponent } from './travel/travel.component';
 import { WeddingComponent } from './weddingparty/wedding.component';
 import { FAQComponent } from './faq/faq.component';
 import { RsvpDialogComponent } from './rsvp-dialog/rsvp-dialog.component';
@@ -24,7 +24,7 @@ import { RsvpDialogComponent } from './rsvp-dialog/rsvp-dialog.component';
     RegistryComponent,
     AboutComponent,
     RsvpComponent,
-    TravelComponent,
+    //TravelComponent,
     WeddingComponent,
     FAQComponent,
     RsvpDialogComponent
