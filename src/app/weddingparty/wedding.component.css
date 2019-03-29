@@ -12,7 +12,7 @@ h1 {
 
 .img {
   width: 100%;
-  height: auto;
+  height: 400px;
   margin-bottom: 0.5%;
 }
 
@@ -62,6 +62,11 @@ h1 {
 
 .half-row {
   display: contents;
+}
+
+td {
+  font-family: "Andale Mono";
+  font-size: 1.5em;
 }
 
 @media(max-width: 767px){
