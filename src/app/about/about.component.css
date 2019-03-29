@@ -1,32 +1,3 @@
-h2 {
-  font-family: Bilbo, cursive;
-}
-
-.regH {
-  text-align: center;
-  font-family: Bilbo, cursive;
-  font-size: 6rem;
-}
-
-.row-eq-height {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.d-flex {
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.align-items-stretch {
-  -ms-flex-align: stretch;
-  align-items: stretch;
-}
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;

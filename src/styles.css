@@ -9,6 +9,49 @@ html body {
   margin: 0;
 }
 
+app-faq {
+  font-family: "Andale Mono", serif;
+}
+
+.row-eq-height {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.row-eq-height > [class^="col"] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .row-eq-height > [class^="col"] {
+    width: 100%;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Bilbo, cursive;
+}
+
+.regH {
+  text-align: center;
+  font-family: Bilbo, cursive;
+  font-size: 6rem;
+}
+
+.indented {
+  margin-left: 6%;
+  margin-right: 6%;
+  text-align: left;
+}
+
 .btn-disabled {
   cursor: default;
   border: 1px solid #999999;

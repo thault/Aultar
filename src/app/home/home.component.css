@@ -5,25 +5,31 @@ table {
 }
 
 h1, h2, h3 {
-  font-family: Bilbo, cursive;
   color: #D9BB6E;
 }
 
-h2{
+h2 {
   font-size: 7rem;
   font-size: 5.8vw;
-  text-decoration: underline;
-  text-decoration-style: solid;
+}
+
+h2, th {
+  text-decoration:underline;
+}
+
+p, td, th {
+  font-size: 2rem;
+  font-size: 1.6vw;
+  text-align: center;
+}
+
+td {
+  min-width: 15px;
 }
 
 #content {
   background-color: #720E31;
-  border-color: #D9BB6E;
-}
-
-#content p{
   color: #D9BB6E;
-  vertical-align: center;
 }
 
 .content-bottom {
@@ -32,71 +38,6 @@ h2{
   left: 0;
   right: 0;
   margin-bottom: 7%;
-}
-
-p, td, th{
-  font-size: 2rem;
-  font-size: 1.6vw;
-}
-
-td, th{
-  align-content: center;
-  text-align: center;
-  color: #D9BB6E;
-}
-
-th{
-  text-decoration:underline;
-}
-
-tbody{
-  vertical-align: middle;
-}
-
-.row-eq-height {
-  margin-top: 0;
-  display: table;
-}
-
-.row-eq-height > .col-sm-4 {
-  float: none;
-  display: table-cell;
-  vertical-align: top;
-}
-
-.img-home {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-#img1-col, #img2-col {
-  width: 33%;
-}
-
-#content {
-  width: 33%;
-}
-
-.row-eq-height {
-  vertical-align: center;
-  height: expression((100vw * .425));
-  /* Firefox */
-  height: -moz-calc((100vw * .425));
-  /* WebKit */
-  height: -webkit-calc((100vw * .425));
-  /* Opera */
-  height: -o-calc((100vw * .425));
-  height: calc((100vw * .425));
-}
-
-.col-sm-4 {
-  margin: 0;
-  padding: 0;
-}
-
-.image-col {
-  vertical-align: center;
 }
 
 img {
@@ -113,8 +54,27 @@ img {
   margin: auto;
 }
 
+#img1-col > img {
+  margin-left: 0;
+}
+
+#img2-col > img {
+  margin-right: 0;
+}
+
 .row-eq-height {
+  display: table;
   margin: 10px;
+
+  height: expression((100vw * .425));
+  /* Firefox */
+  height: -moz-calc((100vw * .425));
+  /* WebKit */
+  height: -webkit-calc((100vw * .425));
+  /* Opera */
+  height: -o-calc((100vw * .425));
+  height: calc((100vw * .425));
+
   width: expression(100% - 20px);
   /* Firefox */
   width: -moz-calc(100% - 20px);
@@ -125,18 +85,14 @@ img {
   width: calc(100% - 20px);
 }
 
-#img1-col > img {
-  margin-left: 0;
-}
-
-#img2-col > img {
-  margin-right: 0;
+.row-eq-height > .col-sm-4 {
+  float: none;
+  display: table-cell;
 }
 
 /*This is where hamburger menu displays*/
 @media(max-width: 767px){
   .row-eq-height {
-    background-color: #720E31;
     height: expression((100vw * .7));
     /* Firefox */
     height: -moz-calc((100vw * .7));

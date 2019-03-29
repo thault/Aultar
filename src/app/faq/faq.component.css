@@ -1,16 +1,5 @@
-.panel-heading > h4 {
+.panel-heading {
   font-size: 2.65rem;
-  font-family: "Andale Mono", serif;
-}
-
-.indented {
-  margin-left: 6%;
-  margin-right: 6%;
-}
-
-.regH{
-  font-family: Bilbo, cursive;
-  font-size: 6rem;
 }
 
 .panel-heading:hover {
@@ -20,6 +9,11 @@
 .panel {
   margin-bottom: 10px;
 }
+
+.panel-collapse > .panel-body {
+  font-size: 1.9rem;
+}
+
 /*
 .even > .panel-heading {
   background-color: #132657;
@@ -42,13 +36,3 @@
   color: black;
   border-top-color: #E5D19D;
 }*/
-
-.panel-collapse > .panel-body > p {
-  margin-bottom: 0;
-  font-size: 1.9rem;
-  font-family: "Andale Mono", serif;
-}
-/*
-19, 38, 87, .89
-44.96, 61.87, 105.48
-*/
