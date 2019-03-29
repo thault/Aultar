@@ -1,8 +1,3 @@
-.regH{
-  font-family: Bilbo, cursive;
-  font-size: 6rem;
-}
-
 h1 {
   font-size: 6rem;
   text-align: center;
@@ -12,7 +7,7 @@ h1 {
 
 .img {
   width: 100%;
-  height: 400px;
+  height: auto;
   margin-bottom: 0.5%;
 }
 
@@ -41,11 +36,6 @@ h1 {
   width: 33.3333333%
 }
 
-.indented {
-  margin-left: 6%;
-  margin-right: 6%;
-}
-
 .title {
   font-size: 3vw;
   font-family: Bilbo, cursive;
@@ -62,11 +52,6 @@ h1 {
 
 .half-row {
   display: contents;
-}
-
-td {
-  font-family: "Andale Mono";
-  font-size: 1.5em;
 }
 
 @media(max-width: 767px){
@@ -108,7 +93,7 @@ td {
   }
 
   .name {
-    font-size: 4.75vw;
+    font-size: 4.4vw;
   }
 
   .half-row {
@@ -119,4 +104,3 @@ td {
     margin: 0 0 20px;
   }
 }
-
