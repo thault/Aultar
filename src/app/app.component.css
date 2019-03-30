@@ -169,3 +169,13 @@ button[aria-expanded="true"] {
 .disabledd {
   background-color: transparent !important;
 }
+
+@media (max-width: 767px){
+  #Registry[tooltip]::before {
+    left: 14%;
+  }
+
+  #Registry[tooltip]::after {
+    left: 14%;
+  }
+}
