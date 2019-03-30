@@ -148,6 +148,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(0%)   translateY(-50%);
 }
 
-[tooltip]:hover::after,[tooltip]:hover::before {
+[tooltip]:hover::after,
+[tooltip]:hover::before {
   opacity:1;
 }
