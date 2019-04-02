@@ -11,7 +11,7 @@ import { PhotosComponent } from './photos/photos.component';
 import { RegistryComponent } from './registry/registry.component';
 import { AboutComponent } from './about/about.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
-import { TravelComponent } from './travel/travel.component';
+//import { TravelComponent } from './travel/travel.component';
 import { WeddingComponent } from './weddingparty/wedding.component';
 import { FAQComponent } from './faq/faq.component';
 import {FormsModule} from "@angular/forms";
@@ -29,7 +29,8 @@ import {DataService} from "./rsvp/data.service";
     RegistryComponent,
     AboutComponent,
    RsvpComponent,
-    TravelComponent,
+    //TravelComponent,
+
     WeddingComponent,
     FAQComponent,
     RsvpDialogBox,

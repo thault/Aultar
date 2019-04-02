@@ -1,55 +1,19 @@
-#head{
-  text-align: center;
-}
-
 h1, h2, h3 {
-  font-family: Bilbo, cursive;
   margin: 0;
 }
 
-.btn {
-  color: white;
-}
-
-.container-fluid{
-  background-color: #132657;
-}
-
-.navbar-inverse .navbar-nav>li>a {
-  color: #D9BB6E;
-}
-
-.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
-  color: #D9BB6E;
-}
-
-.navbar-brand:hover, li:hover{
-  background-color: #720E31;
-}
-
-.regbtn:hover {
-  background-color: #720E31;
+nav ul li{
+  text-align: left;
 }
 
 .page-header {
   text-align:center;
-/* Background Image
-  background-image: url("../assets/flower.gif");
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: auto;
-*/
   margin: 0;
   padding: 30px 0;
 }
 
-
-.page-header h1:before {
-  display: none;
-}
-
-.page-header h1:after {
-  display: none;
+.navbar-inverse .navbar-nav>li>a {
+  color: #D9BB6E;
 }
 
 .navbar {
@@ -58,26 +22,30 @@ h1, h2, h3 {
   margin-top: -1px;
 }
 
-#navbar-brand{
+.navbar-inverse {
+  background-color: #132657;
+  margin-bottom: 0;
+}
+
+.navbar-brand:hover, li:hover, .regbtn:hover {
+  background-color: #720E31;
+}
+
+#navbar-brand {
   font-size: 18px;
   vertical-align: middle;
 }
 
-.btn-nav:hover{
-  background-color: #132657;
+.regbtn {
+  background-color: #D9BB6E;
 }
 
 .btn-nav{
   padding-left: 15px;
 }
 
-nav ul li{
-  text-align: left;
-}
-
-.navbar-inverse {
+.btn-nav:hover {
   background-color: #132657;
-  margin-bottom: 0;
 }
 
 .navbar-toggler {
@@ -116,7 +84,7 @@ button[aria-expanded="true"] {
   transition: 0.4s;
 }
 
-@media (min-width: 990px){
+@media (min-width: 868px){
   .navbar-nav{
     float:none;
     margin: 0 auto;
@@ -184,5 +152,30 @@ button[aria-expanded="true"] {
     margin-top: -5px;
     margin-left: -25px;
     position: absolute;
+  }
+}
+
+.btn-disabled {
+  cursor: default;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.btn-disabled:hover {
+  background-color: #cccccc;
+}
+
+.disabledd {
+  background-color: transparent !important;
+}
+
+@media (max-width: 767px){
+  #Registry[tooltip]::before {
+    left: 14%;
+  }
+
+  #Registry[tooltip]::after {
+    left: 14%;
   }
 }

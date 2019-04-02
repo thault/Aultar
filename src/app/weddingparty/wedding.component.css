@@ -1,25 +1,70 @@
 h1 {
-  font-size: 2em;
-  text-align: center;
-  font-family: "Andale Mono";
+  margin-bottom: 30px;
 }
 
 .img {
   width: 100%;
+  height: auto;
   margin-bottom: 0.5%;
 }
-.card-picture {
-  width: 23%;
-  margin-bottom: 2%;
-}
-.container {
-  min-height: 100%;
-  width: 100%;
+
+.col {
+  width: 50%;
 }
 
-p {
-  font-family: "Andale Mono";
-  font-size: 1.5em;
+.col-sm-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+  text-align: center;
 }
 
+.col-sm-2 {
+  width: 66%;
+}
 
+.title {
+  display: flex;
+  float: none;
+  font-size: 3vw;
+  font-family: Bilbo, cursive;
+  height: 50%;
+  align-items: flex-end;
+}
+
+.name {
+  font-size: 2.5vw;
+}
+
+.left {
+  display: none;
+}
+
+@media(max-width: 767px){
+  .right {
+    display: none;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33%;
+  }
+
+  .title {
+    font-size: 6vw;
+  }
+
+  .name {
+    font-size: 4.4vw;
+  }
+
+  .half-row {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    margin: 0 0 20px;
+  }
+}

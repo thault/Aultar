@@ -1,83 +1,47 @@
-p {
-  font-size: 2em;
-  text-align: center;
-  font-family: "Andale Mono", monospace;
+.regP {
+  text-align: justify;
+  font-size: 2.25rem;
+  margin-bottom: 75px;
 }
 
 .card {
-  position: relative;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  width: 18rem;
-}
-
-.card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 1.25rem;
+  flex-flow: column;
+  margin: 6%;
+  height: 100%;
 }
 
 .card-img-top {
+  display: -ms-flexbox;
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  height: 50%;
+  margin-bottom: 20px;
+}
+
+.card-img-top > svg {
   width: 100%;
-  clear: both;
-  padding-top: 44%;
-  padding-bottom: 44%;
-  vertical-align : middle;
-  margin-top: 0;
+  height: auto;
+  max-width: 300px;
+}
+
+.card-body {
+  padding: 1.25rem;
+  flex: 0 1 auto;
+}
+
+.btn {
+  width: 95%;
   margin-bottom: 0;
 }
 
-svg{
-  margin-top: -50%;
-  margin-bottom: -50%;
-  vertical-align : middle;
-}
-
-.regbtn{
-  width: 95%;
+.regbtn {
   background-color: #132657;
   border: none;
   color: #D9BB6E;
-  margin-bottom: -10%;
 }
 
-.regbtn:hover{
+.regbtn:hover {
   background-color: #720E31;
-}
-
-.regH{
-  font-family: Bilbo, cursive;
-  font-size: 6rem;
-}
-
-.indented {
-  margin-left: 6%;
-}
-
-@media(min-width: 768px) {
-  .indented {
-    /* Default */
-    margin-left: 9.55%;
-    /* IE-OLD */
-    margin-left: expression((33% - 16rem)/2);
-    /* Firefox */
-    margin-left: -moz-calc((33% - 16rem)/2);
-    /* WebKit */
-    margin-left: -webkit-calc((33% - 16rem)/2);
-    /* Opera */
-    margin-left: -o-calc((33% - 16rem)/2);
-    /* Standard */
-    margin: 0 calc((33% - 16rem)/2) -3.5%;
-  }
-}
-
-.regP{
-  text-align: justify;
-  font-size: 2rem;
 }

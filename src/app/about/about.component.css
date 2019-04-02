@@ -1,8 +1,32 @@
-h1 {
-  text-align: center;
-  font-family: "Andale Mono";
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: column;
 }
 
-h2 {
-  font-family: "Andale Mono";
+.mat-card-header {
+  width: 100%;
+  text-align: center;
+  flex: 0 1 auto;
+}
+
+.card-img-top {
+  flex: 0 1 auto;
+  width: 80%;
+  height: auto;
+  margin-bottom: 30px;
+  margin-left: 10%;
+}
+
+.card-body {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 20px;
+  text-align: justify;
+
+  display: -ms-flexbox;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
 }
