@@ -1,0 +1,33 @@
+
+<h1 mat-dialog-title>Hello data.</h1>
+<div mat-dialog-content>
+  <p>restrictions?</p>
+
+  <mat-form-field>
+
+      <label>Going? checkbox</label>
+      <br>
+    <br>
+    <label for="lastname" class="last-name">Last Name</label>
+    <input id="lastname" type="text">
+    <br>
+    <label>Dietary 4 checkboxes </label>
+
+      <label for="firstname" class="first-name">First Name</label>
+      <input id="firstname" type="text" matInput [(ngModel)]="data.user">
+
+  </mat-form-field>
+
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.user" cdkFocusInitial>Ok</button>
+</div>
+
+
+
+
+
+

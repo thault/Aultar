@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import {RsvpComponent} from './rsvp/rsvp.component';
 
 @Component({
   selector: 'app-root',

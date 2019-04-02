@@ -1,4 +1,4 @@
-h1 {
+/*h1 {
   font-size: 2em;
   text-align: center;
   font-family: "Andale Mono";
@@ -35,4 +35,16 @@ input {
 
 .regbtn:hover {
   background-color: #720E31;
+}  */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 30px;
 }

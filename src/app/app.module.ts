@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatTableModule, MatDialogModule, } from '@angular/material';
+import {  MatButtonModule, MatCheckboxModule, MatTableModule, MatDialogModule, MatInputModule, MatFormFieldModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from "@angular/flex-layout";
-
+import {RsvpDialogBox} from "./rsvp/rsvp.component";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,7 +14,12 @@ import { RsvpComponent } from './rsvp/rsvp.component';
 import { TravelComponent } from './travel/travel.component';
 import { WeddingComponent } from './weddingparty/wedding.component';
 import { FAQComponent } from './faq/faq.component';
-import { RsvpDialogComponent } from './rsvp-dialog/rsvp-dialog.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {DataService} from "./rsvp/data.service";
+
+//import {restAPIComponent} from "./rsvp/rsvp.component";
+
 
 @NgModule({
   declarations: [
@@ -23,11 +28,12 @@ import { RsvpDialogComponent } from './rsvp-dialog/rsvp-dialog.component';
     PhotosComponent,
     RegistryComponent,
     AboutComponent,
-    RsvpComponent,
+   RsvpComponent,
     TravelComponent,
     WeddingComponent,
     FAQComponent,
-    RsvpDialogComponent
+    RsvpDialogBox,
+    //restAPIComponent
   ],
   imports: [
     BrowserModule,
@@ -37,12 +43,15 @@ import { RsvpDialogComponent } from './rsvp-dialog/rsvp-dialog.component';
     MatCheckboxModule,
     MatTableModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    HttpClientModule
   ],
   entryComponents: [
-    RsvpDialogComponent,
-  ],
-  providers: [],
+      ],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

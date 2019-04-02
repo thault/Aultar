@@ -4,14 +4,32 @@
 
   <br>
 
-  <form>
-    <p class="reg">Please enter your household key:</p>
-    <input type="text" name="householdId">
-    <br><br>
+  <form name="dialog">
+    <mat-form-field>
+      <input matInput [(ngModel)] = "user" required placeholder="Whats your password?">
+    </mat-form-field>
 
-    <button mat-raised-button type="button" (click)="openDialog()" >Submit</button>
+    <button ng-disabled="dialog.$invalid" mat-raised-button type="button" (click)="openDialog(user)" >Submit</button>
   </form>
   <br>
+
+  <ul>
+    <li>
+      <button mat-raised-button type="button"  (click)="get_household()">Get /Households</button>
+      <ul>
+        <p>hello </p>
+        <li *ngFor="let household1 of household | async">
+          --householdId: {{household1.householdId}}
+          --name: {{household1.name}}
+          --address: {{household1.address}}
+          --guestsRemaining: {{household1.guestsRemaining}}
+          --hasSubmitted: {{household1.hasSubmitted}}
+          --password: {{household1.passcode}}
+        </li>
+      </ul>
+    </li>
+
+  </ul>
 </div>
 
 
@@ -19,3 +37,13 @@
 
 
 
+
+
+   <!-- <mat-form-field>
+      <input matInput [(ngModel)] = "user" placeholder="Whats your password?">
+    </mat-form-field>
+  <button mat-raised-button(click) ="openDialog()">Submit</button>
+
+
+
+</div>!-->
