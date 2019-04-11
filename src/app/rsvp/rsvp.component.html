@@ -9,22 +9,22 @@
       <input matInput [(ngModel)] = "user" required placeholder="Whats your password?">
     </mat-form-field>
 
-    <button ng-disabled="dialog.$invalid" mat-raised-button type="button" (click)="openDialog(user)" >Submit</button>
+    <button ng-disabled="dialog.$invalid" mat-raised-button type="button" (click)="openDialog()" >Submit</button>
   </form>
   <br>
 
   <ul>
     <li>
-      <button mat-raised-button type="button"  (click)="get_household()">Get /Households</button>
+      <button mat-raised-button type="button"  (click)="get_household()">Get Households</button>
       <ul>
         <p>hello </p>
-        <li *ngFor="let household1 of household | async">
-          --householdId: {{household1.householdId}}
-          --name: {{household1.name}}
-          --address: {{household1.address}}
-          --guestsRemaining: {{household1.guestsRemaining}}
-          --hasSubmitted: {{household1.hasSubmitted}}
-          --password: {{household1.passcode}}
+        <li>
+          --householdId: {{household.householdId}}
+          --name: {{household.name}}
+          --address: {{household.address}}
+          --guestsRemaining: {{household.guestsRemaining}}
+          --hasSubmitted: {{household.hasSubmitted}}
+          --password: {{household.passcode}}
         </li>
       </ul>
     </li>

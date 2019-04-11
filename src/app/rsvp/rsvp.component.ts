@@ -1,17 +1,22 @@
 import {Component, Inject} from '@angular/core';
 import { MatDialog , MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {Households} from "./Households";
-import {DataService} from "./data.service";
-//import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
-import {Observable} from "rxjs";
+//import {observableToBeFn} from 'rxjs/internal/testing/TestScheduler';
+//import {Observable} from 'rxjs';
 import {Guest} from "./Guest";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ValidatorFn} from "@angular/forms";
+import { of, Observable } from 'rxjs';
+import {Dietary} from "./Dietary";
+import { map } from 'rxjs/operators';
+import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 
 export interface DialogData {
+  house: Households;
   user: string;
+  dietary: Dietary[];
+
 }
-
-
 
 
 @Component({
@@ -22,58 +27,88 @@ export interface DialogData {
 
 export class RsvpComponent {
   baseUrl: string = "http://test.aultar.wedding:8080/households";
-
+ dietaryUrl: string = "http://test.aultar.wedding:8080/dietary";
   user: string;
-  public household: Observable<Households[]>;
-  public guest: Guest[] = [];
+  public household: Households;
+  public dietaryOptions: Dietary[];
 
 
-   constructor(private http: HttpClient, public dialog: MatDialog){
-     /*this.dataService.get_guest().subscribe((res:Guest[])=>{
-       this.guest = res;
-     });*/
-
+   constructor( public dialog: MatDialog, public http: HttpClient){
    }
-  get_household(): Observable<Households[]>{
-   return this.http.get<Households[]>(`${this.baseUrl}/Blue42`)
-  }
 
 
 
-  openDialog(user: string): void{
-
-    this.user = user;
-
+   openDialog(): void{
     const dialogRef = this.dialog.open(RsvpDialogBox, {
-      width: '250px',
+      width:'500',
+      height: '500',
+      data: {house: this.household, dietary: this.dietaryOptions}
 
-      data: {user: this.user}
     });
 
     dialogRef.afterClosed().subscribe(result =>{
       console.log("the Dialog box was closed");
     });
   }
-     /**/
+  get_Dietary(): Observable<any>{
+     return this.http.get<Dietary[]>(`${this.dietaryUrl}`);
+  }
+     get_household(): void{
+       this.get_Dietary().subscribe(
+         res => {
+           this.dietaryOptions = res;
+           //console.log(resource["client_id"]);
+         }
+       );
+
+    this.http.get<Households>(`${this.baseUrl}/Blue42`).subscribe((res : Households)=>{
+      this.household = res;
+      console.log(this.household.guests[0].guestId);
+      console.log(this.household.guests[0]);
+      console.log(this.household.guests[0].lname);
+      if(this.household.name == "Test1") {
+        this.openDialog();
+      }
+    });
+    //return this.household;
+  }
 
 }
 
 
 @Component({
-  selector:'rsvp-dialog.component',
+  selector: 'rsvp-dialog.component',
   templateUrl: './rsvp-dialog.component.html',
 })
 export class RsvpDialogBox
 {
-  constructor(
-    public dialogRef: MatDialogRef<RsvpDialogBox>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-  onNoClick(): void {
-    this.dialogRef.close();
+  baseUrl: string = "http://test.aultar.wedding:8080/households/update";
+  form: FormGroup;
+  guests: Guest[];
+  dietary: Dietary[];
+
+  constructor(public dialogRef: MatDialogRef<RsvpDialogBox>,
+             @Inject(MAT_DIALOG_DATA) public data: DialogData, public http: HttpClient) {}
+
+
+    onNoClick(): void {
+        this.dialogRef.close();
+  }
+
+  getGuests() {
+    this.guests = this.data.house.guests
+   }
+
+   put_house(): void{
+     this.data.house.guests[0].isRSVPed = false;
+     this.http.put(this.baseUrl, JSON.parse(JSON.stringify(this.data.house)));
+     this.dialogRef.close();
   }
 
 
 
+
 }
+
 
 

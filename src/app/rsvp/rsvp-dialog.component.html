@@ -1,20 +1,30 @@
 
+
+
+
+
 <h1 mat-dialog-title>Hello data.</h1>
 <div mat-dialog-content>
   <p>restrictions?</p>
 
   <mat-form-field>
 
-      <label>Going? checkbox</label>
+      <label>Going? </label>
+
+    <label *ngFor="let guest of data.house.guests">
+      <mat-checkbox>Yes or not?</mat-checkbox>
+      <br>
+      <label class="last-name">Last Name: {{guest.lname}}</label>
+
+    </label>
+
+    <label *ngFor="let dietary of data.dietary">Dietary Restrictions
+    <mat-checkbox>{{dietary.description}}</mat-checkbox>
+    </label>
       <br>
     <br>
-    <label for="lastname" class="last-name">Last Name</label>
-    <input id="lastname" type="text">
-    <br>
-    <label>Dietary 4 checkboxes </label>
 
-      <label for="firstname" class="first-name">First Name</label>
-      <input id="firstname" type="text" matInput [(ngModel)]="data.user">
+    <br>
 
   </mat-form-field>
 
@@ -23,7 +33,7 @@
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.user" cdkFocusInitial>Ok</button>
+  <button mat-raised-button type="button" (click)="put_house()">Ok</button>
 </div>
 
 

@@ -1,3 +1,5 @@
+import {Guest} from "./Guest";
+
 export class Households{
   householdId: number;
   passcode: string;
@@ -5,6 +7,8 @@ export class Households{
   address: string;
   guestsRemaining: number;
   hasSubmitted: boolean;
+  guests: Guest[];
+
   constructor(){}
 
 }

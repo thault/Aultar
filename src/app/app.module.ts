@@ -17,6 +17,7 @@ import { FAQComponent } from './faq/faq.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {DataService} from "./rsvp/data.service";
+//import {RsvpFormBuilder} from "./rsvp/rsvp.component";
 
 //import {restAPIComponent} from "./rsvp/rsvp.component";
 
@@ -34,6 +35,8 @@ import {DataService} from "./rsvp/data.service";
     WeddingComponent,
     FAQComponent,
     RsvpDialogBox,
+    // RsvpFormBuilder,
+
     //restAPIComponent
   ],
   imports: [
