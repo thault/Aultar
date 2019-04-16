@@ -31,6 +31,7 @@ export class RsvpComponent {
   user: string;
   public household: Households;
   public dietaryOptions: Dietary[];
+  public dietary1: Dietary[];
 
 
    constructor( public dialog: MatDialog, public http: HttpClient){
@@ -40,10 +41,7 @@ export class RsvpComponent {
 
    openDialog(): void{
     const dialogRef = this.dialog.open(RsvpDialogBox, {
-      width:'500',
-      height: '500',
       data: {house: this.household, dietary: this.dietaryOptions}
-
     });
 
     dialogRef.afterClosed().subscribe(result =>{
@@ -57,9 +55,16 @@ export class RsvpComponent {
        this.get_Dietary().subscribe(
          res => {
            this.dietaryOptions = res;
+
+           /*for(let i =0; i < this.dietaryOptions.length; i++)
+           {
+             if(this.dietaryOptions[i].alwaysShow == true)
+             {this.dietary1[i] = this.dietaryOptions[i]}
+           }*/
            //console.log(resource["client_id"]);
          }
        );
+
 
     this.http.get<Households>(`${this.baseUrl}/Blue42`).subscribe((res : Households)=>{
       this.household = res;
@@ -76,23 +81,33 @@ export class RsvpComponent {
 }
 
 
+
+
+
+
 @Component({
   selector: 'rsvp-dialog.component',
-  templateUrl: './rsvp-dialog.component.html',
+  templateUrl: './rsvp-dialog.component.html'
+
 })
 export class RsvpDialogBox
 {
   baseUrl: string = "http://test.aultar.wedding:8080/households/update";
   form: FormGroup;
   guests: Guest[];
-  dietary: Dietary[];
+  isChecked: Dietary[];
 
   constructor(public dialogRef: MatDialogRef<RsvpDialogBox>,
              @Inject(MAT_DIALOG_DATA) public data: DialogData, public http: HttpClient) {}
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
-    onNoClick(): void {
-        this.dialogRef.close();
+  words2: any[] = [{songName: 'y', artistName: 'u'}];
+
+  add() {
+    this.words2.push({songName: '', artistName: ''});
   }
 
   getGuests() {
@@ -104,8 +119,6 @@ export class RsvpDialogBox
      this.http.put(this.baseUrl, JSON.parse(JSON.stringify(this.data.house)));
      this.dialogRef.close();
   }
-
-
 
 
 }

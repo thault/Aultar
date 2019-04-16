@@ -1,4 +1,5 @@
 import {Guest} from "./Guest";
+import {Dietary} from "./Dietary";
 
 export class Households{
   householdId: number;
@@ -8,7 +9,7 @@ export class Households{
   guestsRemaining: number;
   hasSubmitted: boolean;
   guests: Guest[];
-
+  dietaryRestrictions: Dietary[];
   constructor(){}
 
 }
