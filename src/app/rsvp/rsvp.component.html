@@ -1,51 +1,224 @@
-<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html" align="center">
 
   <h1>RSVP</h1>
 
   <br>
 
-  <form name="dialog">
-    <mat-form-field>
-      <input matInput [(ngModel)] = "user" required placeholder="Whats your password?">
-    </mat-form-field>
-
-    <button ng-disabled="dialog.$invalid" mat-raised-button type="button" (click)="openDialog()" >Submit</button>
+  <form name="dialog" (ngSubmit)="openDialog(passcode.value)">
+    <div class="row-eq-height">
+      <mat-form-field>
+        <input #passcode matInput required placeholder="Enter your passcode">
+      </mat-form-field>
+      &nbsp;
+      <button id="submitPasscode" mat-raised-button type="submit">Submit</button>
+      &nbsp;
+      <div *ngIf="loading">
+        <svg id="spinner" class="lds-spinner" width="35px" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 100 100"
+             preserveAspectRatio="xMidYMid">
+          <g transform="rotate(0 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.72s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(36 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.64s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(72 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.56s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(108 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.4800000000000001s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(144 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.4s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(180 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.32s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(216 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.24000000000000005s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(252 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.16s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(288 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="-0.08s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+          <g transform="rotate(324 50 50)">
+            <rect x="47.5" y="12.5" rx="4.75" ry="1.25" width="5" height="25" fill="">
+              <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.8s" begin="0s"
+                       repeatCount="indefinite"></animate>
+            </rect>
+          </g>
+        </svg>
+      </div>
+      <div *ngIf="error">
+        <svg id="errorIcon" width="35px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <g transform="translate(-421.71-531.79)" fill="#da4453">
+            <path d="m13.293 2l-11.293 11.293c0 0 .716.702.707.707l11.293-11.293" transform="translate(421.71 531.79)"/>
+            <path d="m424.42 533.79l11.293 11.293c0 0-.716.702-.707.707l-11.293-11.293z"/>
+          </g>
+        </svg>
+      </div>
+      <div *ngIf="!loading && !error" style="width: 35px;"></div>
+    </div>
   </form>
-  <br>
-
-  <ul>
-    <li>
-      <button mat-raised-button type="button"  (click)="get_household()">Get Households</button>
-      <ul>
-        <p>hello </p>
-        <li>
-          --householdId: {{household.householdId}}
-          --name: {{household.name}}
-          --address: {{household.address}}
-          --guestsRemaining: {{household.guestsRemaining}}
-          --hasSubmitted: {{household.hasSubmitted}}
-          --password: {{household.passcode}}
-          <br><br>
-          {{household | json}}
-        </li>
-      </ul>
-    </li>
-
-  </ul>
 </div>
 
+<div #rsvpModal class="modal" role="dialog">
+  <div class="modal-content">
+    <div mat-dialog-content *ngIf="household">
+      <h1 mat-dialog-title>RSVP</h1>
 
+      <div id="guest-table">
+        <table>
 
+          <tr align="center">
+            <th style="padding-right: 5px; padding-left: 5px">Attending</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Dietary Restrictions</th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let guest of household.guests">
+            <td align="center">
+              <mat-checkbox [checked]="guest.isRSVPed"></mat-checkbox>
+            </td>
+            <td style="padding-right: 5px;"><input matInput type="text" placeholder="First Name" [value]="guest.fname"
+                                                   class="form-control shadowed"
+                                                   [disabled]="!guest.isPlusOne"/></td>
+            <td style="padding-right: 10px;"><input matInput type="text" placeholder="Last Name" [value]="guest.lname"
+                                                    class="form-control shadowed"
+                                                    [disabled]="!guest.isPlusOne"/></td>
+            <td>
+              <div class="dietContainer"><span *ngFor="let dietary of dietaryOptions"><mat-checkbox
+                *ngIf="dietary.alwaysShow"
+                [checked]="containsDietary(guest.dietaryRestrictions, dietary)"></mat-checkbox><label
+                *ngIf="dietary.alwaysShow">{{dietary.description}}</label></span><br/>
+                <span *ngFor="let dietary of guest.dietaryRestrictions"><mat-checkbox *ngIf="!dietary.alwaysShow"
+                                                                                      [checked]="dietary.dietaryId > 0"></mat-checkbox><input
+                  *ngIf="!dietary.alwaysShow" matInput type="text" [value]="dietary.description"
+                  placeholder="Other Dietary Restrictions" class="form-control dietaryFillIn shadowed"/></span>
+              </div>
+            </td>
+            <td *ngIf="guest.isPlusOne; else trashPlaceholder">
+              <svg (click)="deleteGuest(guest.guestId)" class="trashIcon" xmlns="http://www.w3.org/2000/svg"
+                   version="1.1" id="Capa_1" x="0px" y="0px"
+                   width="15px"
+                   height="15px" viewBox="0 0 729.837 729.838"
+                   xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<path stroke="red" fill="red"
+            d="M589.193,222.04c0-6.296,5.106-11.404,11.402-11.404S612,215.767,612,222.04v437.476c0,19.314-7.936,36.896-20.67,49.653     c-12.733,12.734-30.339,20.669-49.653,20.669H188.162c-19.315,0-36.943-7.935-49.654-20.669     c-12.734-12.734-20.669-30.313-20.669-49.653V222.04c0-6.296,5.108-11.404,11.403-11.404c6.296,0,11.404,5.131,11.404,11.404     v437.476c0,13.02,5.37,24.922,13.97,33.521c8.6,8.601,20.503,13.993,33.522,13.993h353.517c13.019,0,24.896-5.394,33.498-13.993     c8.624-8.624,13.992-20.503,13.992-33.498V222.04H589.193z"/>
+      <path stroke="red" fill="red"
+            d="M279.866,630.056c0,6.296-5.108,11.403-11.404,11.403s-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.108-11.404,11.404-11.404s11.404,5.108,11.404,11.404V630.056z"/>
+      <path stroke="red" fill="red"
+            d="M376.323,630.056c0,6.296-5.107,11.403-11.403,11.403s-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.108-11.404,11.404-11.404s11.403,5.108,11.403,11.404V630.056z"/>
+      <path stroke="red" fill="red"
+            d="M472.803,630.056c0,6.296-5.106,11.403-11.402,11.403c-6.297,0-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.107-11.404,11.404-11.404c6.296,0,11.402,5.108,11.402,11.404V630.056L472.803,630.056z"/>
+      <path stroke="red" fill="red"
+            d="M273.214,70.323c0,6.296-5.108,11.404-11.404,11.404c-6.295,0-11.403-5.108-11.403-11.404     c0-19.363,7.911-36.943,20.646-49.677C283.787,7.911,301.368,0,320.73,0h88.379c19.339,0,36.92,7.935,49.652,20.669     c12.734,12.734,20.67,30.362,20.67,49.654c0,6.296-5.107,11.404-11.403,11.404s-11.403-5.108-11.403-11.404     c0-13.019-5.369-24.922-13.97-33.522c-8.602-8.601-20.503-13.994-33.522-13.994h-88.378c-13.043,0-24.922,5.369-33.546,13.97     C278.583,45.401,273.214,57.28,273.214,70.323z"/>
+      <path stroke="red" fill="red"
+            d="M99.782,103.108h530.273c11.189,0,21.405,4.585,28.818,11.998l0.047,0.048c7.413,7.412,11.998,17.628,11.998,28.818     v29.46c0,6.295-5.108,11.403-11.404,11.403h-0.309H70.323c-6.296,0-11.404-5.108-11.404-11.403v-0.285v-29.175     c0-11.166,4.585-21.406,11.998-28.818l0.048-0.048C78.377,107.694,88.616,103.108,99.782,103.108L99.782,103.108z      M630.056,125.916H99.782c-4.965,0-9.503,2.02-12.734,5.274L87,131.238c-3.255,3.23-5.274,7.745-5.274,12.734v18.056h566.361     v-18.056c0-4.965-2.02-9.503-5.273-12.734l-0.049-0.048C639.536,127.936,635.021,125.916,630.056,125.916z"/>
+		</g>
+	</g>
+</g>
+</svg>
+            </td>
+            <ng-template #trashPlaceholder>
+              <td></td>
+            </ng-template>
+          </tr>
+        </table>
+        <button *ngIf="household.guestsRemaining > 0" class="btn" style="margin-top: 5px" (click)="addGuest()">+ Add
+          Guest
+        </button>
+      </div>
 
+      <h1 mat-dialog-title>Song Requests</h1>
+      <div id="song-table">
+        <table>
+          <tr>
+            <th style="padding-right: 5px; padding-left: 5px">Song Title</th>
+            <th>Artist</th>
+            <th></th>
+          </tr>
+          <tr class="songRow" *ngFor="let song of household.songs">
+            <td><input matInput type="text" [value]="song.title" class="form-control shadowed" placeholder="Title"/>
+            </td>
+            <td><input matInput type="text" [value]="song.artist" class="form-control shadowed" placeholder="Artist"/>
+            </td>
+            <td>
+              <svg (click)="deleteSong(song.songId)" style="margin-right: -10px" class="trashIcon"
+                   xmlns="http://www.w3.org/2000/svg" version="1.1" id="Capa_1" x="0px" y="0px"
+                   width="15px"
+                   height="15px" viewBox="0 0 729.837 729.838"
+                   xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<path stroke="red" fill="red"
+            d="M589.193,222.04c0-6.296,5.106-11.404,11.402-11.404S612,215.767,612,222.04v437.476c0,19.314-7.936,36.896-20.67,49.653     c-12.733,12.734-30.339,20.669-49.653,20.669H188.162c-19.315,0-36.943-7.935-49.654-20.669     c-12.734-12.734-20.669-30.313-20.669-49.653V222.04c0-6.296,5.108-11.404,11.403-11.404c6.296,0,11.404,5.131,11.404,11.404     v437.476c0,13.02,5.37,24.922,13.97,33.521c8.6,8.601,20.503,13.993,33.522,13.993h353.517c13.019,0,24.896-5.394,33.498-13.993     c8.624-8.624,13.992-20.503,13.992-33.498V222.04H589.193z"/>
+      <path stroke="red" fill="red"
+            d="M279.866,630.056c0,6.296-5.108,11.403-11.404,11.403s-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.108-11.404,11.404-11.404s11.404,5.108,11.404,11.404V630.056z"/>
+      <path stroke="red" fill="red"
+            d="M376.323,630.056c0,6.296-5.107,11.403-11.403,11.403s-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.108-11.404,11.404-11.404s11.403,5.108,11.403,11.404V630.056z"/>
+      <path stroke="red" fill="red"
+            d="M472.803,630.056c0,6.296-5.106,11.403-11.402,11.403c-6.297,0-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.107-11.404,11.404-11.404c6.296,0,11.402,5.108,11.402,11.404V630.056L472.803,630.056z"/>
+      <path stroke="red" fill="red"
+            d="M273.214,70.323c0,6.296-5.108,11.404-11.404,11.404c-6.295,0-11.403-5.108-11.403-11.404     c0-19.363,7.911-36.943,20.646-49.677C283.787,7.911,301.368,0,320.73,0h88.379c19.339,0,36.92,7.935,49.652,20.669     c12.734,12.734,20.67,30.362,20.67,49.654c0,6.296-5.107,11.404-11.403,11.404s-11.403-5.108-11.403-11.404     c0-13.019-5.369-24.922-13.97-33.522c-8.602-8.601-20.503-13.994-33.522-13.994h-88.378c-13.043,0-24.922,5.369-33.546,13.97     C278.583,45.401,273.214,57.28,273.214,70.323z"/>
+      <path stroke="red" fill="red"
+            d="M99.782,103.108h530.273c11.189,0,21.405,4.585,28.818,11.998l0.047,0.048c7.413,7.412,11.998,17.628,11.998,28.818     v29.46c0,6.295-5.108,11.403-11.404,11.403h-0.309H70.323c-6.296,0-11.404-5.108-11.404-11.403v-0.285v-29.175     c0-11.166,4.585-21.406,11.998-28.818l0.048-0.048C78.377,107.694,88.616,103.108,99.782,103.108L99.782,103.108z      M630.056,125.916H99.782c-4.965,0-9.503,2.02-12.734,5.274L87,131.238c-3.255,3.23-5.274,7.745-5.274,12.734v18.056h566.361     v-18.056c0-4.965-2.02-9.503-5.273-12.734l-0.049-0.048C639.536,127.936,635.021,125.916,630.056,125.916z"/>
+		</g>
+	</g>
+</g>
+</svg>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--<div id="songTable">
+        <div class="row-eq-height">
+          <div class="col"><b>Song Title</b></div>
+          <div class="col"><b>Artist</b></div>
+        </div>
+      </div>-->
+      <button style="margin-top: 5px" class="btn" (click)="addSong()">+ Add Song</button>
 
+      <br/><br/>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button type="button" (click)="put_house()">Submit</button>
+      </div>
 
-
-
-   <!-- <mat-form-field>
-      <input matInput [(ngModel)] = "user" placeholder="Whats your password?">
-    </mat-form-field>
-  <button mat-raised-button(click) ="openDialog()">Submit</button>
-
-
-
-</div>!-->
+    </div>
+  </div>
+</div>

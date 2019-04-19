@@ -1,126 +1,132 @@
-import {Component, Inject} from '@angular/core';
-import { MatDialog , MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {Households} from "./Households";
-//import {observableToBeFn} from 'rxjs/internal/testing/TestScheduler';
-//import {Observable} from 'rxjs';
+import {Component, ViewChild} from '@angular/core';
+import {Household} from "./Household";
 import {Guest} from "./Guest";
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ValidatorFn} from "@angular/forms";
-import { of, Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 import {Dietary} from "./Dietary";
-import { map } from 'rxjs/operators';
-import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
-
-export interface DialogData {
-  house: Households;
-  user: string;
-  dietary: Dietary[];
-
-}
-
+import {Song} from "./Song";
 
 @Component({
   selector: 'app-rsvp',
   templateUrl: './rsvp.component.html',
   styleUrls: ['./rsvp.component.css']
 })
-
 export class RsvpComponent {
-  baseUrl: string = "http://test.aultar.wedding:8080/households";
- dietaryUrl: string = "http://test.aultar.wedding:8080/dietary";
-  user: string;
-  public household: Households;
+  @ViewChild('rsvpModal') rsvpModal;
+  baseUrl: string = "http://test.aultar.wedding:8080";
+  householdExt: string = "households";
+  dietaryExt: string = "dietary";
+  updateUrl: string = "http://test.aultar.wedding:8080/households/update";
+  public household: Household;
   public dietaryOptions: Dietary[];
-  public dietary1: Dietary[];
+  public loading: boolean = false;
+  public error: boolean = false;
 
+  nextGuestId: number = -1;
+  nextSongId: number = -1;
 
-   constructor( public dialog: MatDialog, public http: HttpClient){
-   }
-
-
-
-   openDialog(): void{
-    const dialogRef = this.dialog.open(RsvpDialogBox, {
-      data: {house: this.household, dietary: this.dietaryOptions}
-    });
-
-    dialogRef.afterClosed().subscribe(result =>{
-      console.log("the Dialog box was closed");
-    });
-  }
-  get_Dietary(): Observable<any>{
-     return this.http.get<Dietary[]>(`${this.dietaryUrl}`);
-  }
-     get_household(): void{
-       this.get_Dietary().subscribe(
-         res => {
-           this.dietaryOptions = res;
-
-           /*for(let i =0; i < this.dietaryOptions.length; i++)
-           {
-             if(this.dietaryOptions[i].alwaysShow == true)
-             {this.dietary1[i] = this.dietaryOptions[i]}
-           }*/
-           //console.log(resource["client_id"]);
-         }
-       );
-
-
-    this.http.get<Households>(`${this.baseUrl}/Blue42`).subscribe((res : Households)=>{
-      this.household = res;
-      console.log(this.household.guests[0].guestId);
-      console.log(this.household.guests[0]);
-      console.log(this.household.guests[0].lname);
-      if(this.household.name == "Test1") {
-        this.openDialog();
-      }
-    });
-    //return this.household;
+  constructor(public http: HttpClient) {
   }
 
-}
+  ngOnInit() {
+    this.openDialog('Purple14')
+  }
 
+  async openDialog(passcode: string) {
+    this.error = false;
+    this.loading = true;
 
+    this.household = undefined;
+    this.dietaryOptions = undefined;
 
+    try {
+      await this.get_household(passcode);
+      console.log(this.household);
+      await this.get_Dietary();
 
+      this.rsvpModal.nativeElement.className = 'modal show';
 
+    } catch (ex) {
+      this.error = true;
+      console.log(ex);
+    }
+    this.loading = false;
+  }
 
-@Component({
-  selector: 'rsvp-dialog.component',
-  templateUrl: './rsvp-dialog.component.html'
+  async get_Dietary() {
+    this.dietaryOptions = await this.http.get<Dietary[]>(`${this.baseUrl}/${this.dietaryExt}`).toPromise();
+  }
 
-})
-export class RsvpDialogBox
-{
-  baseUrl: string = "http://test.aultar.wedding:8080/households/update";
-  form: FormGroup;
-  guests: Guest[];
-  isChecked: Dietary[];
-
-  constructor(public dialogRef: MatDialogRef<RsvpDialogBox>,
-             @Inject(MAT_DIALOG_DATA) public data: DialogData, public http: HttpClient) {}
+  async get_household(passcode: string) {
+    this.household = await this.http.get<Household>(`${this.baseUrl}/${this.householdExt}/${passcode}`).toPromise();
+    this.household.hasSubmitted = true;
+    let d = new Dietary();
+    d.alwaysShow = false;
+    d.description = "";
+    d.dietaryId = -1;
+    this.household.guests.forEach(g => g.dietaryRestrictions.some(dr => !dr.alwaysShow) ? false : g.dietaryRestrictions.push(d));
+  }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.rsvpModal.nativeElement.className = 'modal';
   }
 
-  words2: any[] = [{songName: 'y', artistName: 'u'}];
-
-  add() {
-    this.words2.push({songName: '', artistName: ''});
+  containsDietary(items: Dietary[], item: Dietary): boolean {
+    return items.some(dr => dr.dietaryId == item.dietaryId);
   }
 
-  getGuests() {
-    this.guests = this.data.house.guests
-   }
-
-   put_house(): void{
-     this.data.house.guests[0].isRSVPed = false;
-     this.http.put(this.baseUrl, JSON.parse(JSON.stringify(this.data.house)));
-     this.dialogRef.close();
+  addGuest(): void {
+    if (this.household.guestsRemaining > 0) {
+      this.household.guestsRemaining--;
+      let d = new Dietary();
+      d.dietaryId = -1;
+      d.description = "";
+      d.alwaysShow = false;
+      let g = new Guest();
+      g.guestId = this.nextGuestId;
+      g.fname = "";
+      g.lname = "";
+      g.isPlusOne = true;
+      g.isRSVPed = true;
+      g.householdId = this.household.householdId;
+      g.tableNo = this.household.guests[0].tableNo;
+      g.dietaryRestrictions = [d];
+      this.household.guests.push(g);
+      this.nextGuestId--;
+    }
   }
 
+  deleteGuest(id: number): void {
+    let toRemove = this.household.guests.findIndex(g => g.guestId == id);
+    if (toRemove > -1) {
+      this.household.guests.splice(toRemove, 1);
+      this.household.guestsRemaining++;
+    }
+  }
 
+  addSong(): void {
+    let s: Song = new Song();
+    s.songId = this.nextSongId;
+    s.artist = "";
+    s.title = "";
+    s.order = this.household.tier.tierId;
+    s.suggestedBy = this.household.householdId;
+    this.household.songs.push(s);
+    this.nextSongId--;
+  }
+
+  deleteSong(id: number): void {
+    let toRemove = this.household.songs.findIndex(s => s.songId == id);
+    if (toRemove > -1) {
+      this.household.songs.splice(toRemove, 1);
+    }
+    if (this.household.songs.length == 0) {
+      this.addSong();
+    }
+  }
+
+  put_house() {
+    this.rsvpModal.nativeElement.className = 'modal';
+  }
 }
 
 

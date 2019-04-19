@@ -1,7 +1,4 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Observable} from "rxjs";
-import {Households} from "./Households";
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class DataService {

@@ -1,7 +1,9 @@
 import {Guest} from "./Guest";
 import {Dietary} from "./Dietary";
+import {Song} from "./Song";
+import {Tier} from "./Tier";
 
-export class Households{
+export class Household {
   householdId: number;
   passcode: string;
   name: string;
@@ -10,6 +12,7 @@ export class Households{
   hasSubmitted: boolean;
   guests: Guest[];
   dietaryRestrictions: Dietary[];
+  songs: Song[];
+  tier: Tier;
   constructor(){}
-
 }
