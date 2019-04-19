@@ -28,7 +28,7 @@ export class RsvpComponent {
   }
 
   ngOnInit() {
-    this.openDialog('Purple14')
+    //this.openDialog('Purple14')
   }
 
   async openDialog(passcode: string) {
