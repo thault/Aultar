@@ -31,6 +31,10 @@ nav ul li{
   background-color: #720E31;
 }
 
+.regbtn:hover {
+  color: #D9BB6E;
+}
+
 #navbar-brand {
   font-size: 18px;
   vertical-align: middle;
@@ -38,6 +42,7 @@ nav ul li{
 
 .regbtn {
   background-color: #D9BB6E;
+  color: #132657;
 }
 
 .btn-nav{

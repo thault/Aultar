@@ -120,7 +120,7 @@
               <div class="dietContainer"><span *ngFor="let dietary of dietaryOptions"><mat-checkbox
                 *ngIf="dietary.alwaysShow"
                 [checked]="containsDietary(guest.dietaryRestrictions, dietary)"></mat-checkbox><label
-                *ngIf="dietary.alwaysShow">{{dietary.description}}</label></span><br/>
+                *ngIf="dietary.alwaysShow">&nbsp;{{dietary.description}}&nbsp;</label></span><br/>
                 <span *ngFor="let dietary of guest.dietaryRestrictions"><mat-checkbox *ngIf="!dietary.alwaysShow"
                                                                                       [checked]="dietary.dietaryId > 0"></mat-checkbox><input
                   *ngIf="!dietary.alwaysShow" matInput type="text" [value]="dietary.description"
