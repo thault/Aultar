@@ -95,8 +95,9 @@
 <div #rsvpModal class="modal" role="dialog">
   <div class="modal-content">
     <div mat-dialog-content *ngIf="household">
-      <h1 #otherError class="mat-dialog-title errorMsg otherError hidden">{{formErrorText}}</h1>
+      <!--<h1 #otherError class="mat-dialog-title errorMsg otherError hidden">{{formErrorText}}</h1>-->
       <h1 mat-dialog-title>RSVP</h1>
+      <h1 #otherError class="mat-dialog-title errorMsg otherError hidden">{{formErrorText}}</h1>
 
       <div id="guest-table">
         <table>

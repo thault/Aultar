@@ -117,12 +117,12 @@ input {
 .otherError {
   display: block;
   margin-left: 0;
-  margin-bottom: -10px;
+  margin-bottom: 10px;
+  margin-top: -5px;
   color: #721c24;
   background-color: #f8d7da;
   text-align: center;
   border-collapse: separate;
-  -moz-border-radius: 5px;
   border-radius: 5px;
 }
 
