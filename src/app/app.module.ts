@@ -21,7 +21,6 @@ import {WeddingComponent} from './weddingparty/wedding.component';
 import {FAQComponent} from './faq/faq.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {DataService} from "./rsvp/data.service";
 
 
 @NgModule({
@@ -50,7 +49,7 @@ import {DataService} from "./rsvp/data.service";
     HttpClientModule
   ],
   entryComponents: [],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
