@@ -89,11 +89,13 @@
       <div *ngIf="!loading && !error" style="width: 35px;"></div>
     </div>
   </form>
+  <div *ngIf="submitSuccess == true" class="alert-success">RSVP submitted successfully!</div>
 </div>
 
 <div #rsvpModal class="modal" role="dialog">
   <div class="modal-content">
     <div mat-dialog-content *ngIf="household">
+      <h1 #otherError class="mat-dialog-title errorMsg otherError hidden">{{formErrorText}}</h1>
       <h1 mat-dialog-title>RSVP</h1>
 
       <div id="guest-table">
@@ -108,22 +110,31 @@
           </tr>
           <tr *ngFor="let guest of household.guests">
             <td align="center">
-              <mat-checkbox [checked]="guest.isRSVPed"></mat-checkbox>
+              <mat-checkbox [(ngModel)]="guest.isRSVPed"></mat-checkbox>
             </td>
-            <td style="padding-right: 5px;"><input matInput type="text" placeholder="First Name" [value]="guest.fname"
+            <td style="padding-right: 5px;"><input matInput type="text" placeholder="First Name"
+                                                   [(ngModel)]="guest.fname"
                                                    class="form-control shadowed"
                                                    [disabled]="!guest.isPlusOne"/></td>
-            <td style="padding-right: 10px;"><input matInput type="text" placeholder="Last Name" [value]="guest.lname"
+            <td style="padding-right: 10px;"><input matInput type="text" placeholder="Last Name"
+                                                    [(ngModel)]="guest.lname"
                                                     class="form-control shadowed"
                                                     [disabled]="!guest.isPlusOne"/></td>
             <td>
-              <div class="dietContainer"><span *ngFor="let dietary of dietaryOptions"><mat-checkbox
-                *ngIf="dietary.alwaysShow"
-                [checked]="containsDietary(guest.dietaryRestrictions, dietary)"></mat-checkbox><label
-                *ngIf="dietary.alwaysShow">&nbsp;{{dietary.description}}&nbsp;</label></span><br/>
+              <div class="dietContainer">
+                <span *ngFor="let dietary of dietaryOptions">
+                  <mat-checkbox *ngIf="dietary.alwaysShow"
+                                [checked]="containsDietary(guest.dietaryRestrictions, dietary)"
+                                (change)="dietaryChange($event.checked, guest.guestId, dietary.dietaryId)"
+                  ></mat-checkbox><label
+                  *ngIf="dietary.alwaysShow">&nbsp;{{dietary.description}}&nbsp;</label></span>
+
+                <br/>
+
                 <span *ngFor="let dietary of guest.dietaryRestrictions"><mat-checkbox *ngIf="!dietary.alwaysShow"
-                                                                                      [checked]="dietary.dietaryId > 0"></mat-checkbox><input
-                  *ngIf="!dietary.alwaysShow" matInput type="text" [value]="dietary.description"
+                                                                                      [checked]="dietary.dietaryId > 0"
+                                                                                      (change)="dietaryChange($event.checked, guest.guestId, dietary.dietaryId)"></mat-checkbox><input
+                  *ngIf="!dietary.alwaysShow" matInput type="text" [(ngModel)]="dietary.description"
                   placeholder="Other Dietary Restrictions" class="form-control dietaryFillIn shadowed"/></span>
               </div>
             </td>
@@ -172,9 +183,10 @@
             <th></th>
           </tr>
           <tr class="songRow" *ngFor="let song of household.songs">
-            <td><input matInput type="text" [value]="song.title" class="form-control shadowed" placeholder="Title"/>
+            <td><input matInput type="text" [(ngModel)]="song.title" class="form-control shadowed" placeholder="Title"/>
             </td>
-            <td><input matInput type="text" [value]="song.artist" class="form-control shadowed" placeholder="Artist"/>
+            <td><input matInput type="text" [(ngModel)]="song.artist" class="form-control shadowed"
+                       placeholder="Artist"/>
             </td>
             <td>
               <svg (click)="deleteSong(song.songId)" style="margin-right: -10px" class="trashIcon"
@@ -214,9 +226,9 @@
       <button style="margin-top: 5px" class="btn" (click)="addSong()">+ Add Song</button>
 
       <br/><br/>
-      <div mat-dialog-actions>
+      <div mat-dialog-actions class="row-eq-height" style="justify-content: left;">
         <button mat-button (click)="onNoClick()">Cancel</button>
-        <button mat-raised-button type="button" (click)="put_house()">Submit</button>
+        <button mat-raised-button type="button" (click)="submitRSVPForm()">Submit</button>
       </div>
 
     </div>

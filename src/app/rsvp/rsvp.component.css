@@ -113,3 +113,29 @@ input {
 #song-table > table {
   width: 100%;
 }
+
+.otherError {
+  display: block;
+  margin-left: 0;
+  margin-bottom: -10px;
+  color: #721c24;
+  background-color: #f8d7da;
+  text-align: center;
+  border-collapse: separate;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.alert-success {
+  width: 262px;
+  margin-left: -40px;
+  border-collapse: separate;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
