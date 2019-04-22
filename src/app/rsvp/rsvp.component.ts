@@ -104,7 +104,7 @@ export class RsvpComponent {
     if (this.household.guestsRemaining > 0) {
       this.household.guestsRemaining--;
       let d = new Dietary();
-      d.dietaryId = -1;
+      d.dietaryId = this.nextDietId;
       d.description = "";
       d.alwaysShow = false;
       let g = new Guest();
@@ -121,6 +121,7 @@ export class RsvpComponent {
       this.dietaryMapping[g.guestId] = [];
 
       this.nextGuestId--;
+      this.nextDietId--;
     }
   }
 
