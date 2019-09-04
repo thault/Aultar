@@ -90,6 +90,23 @@
     </div>
   </form>
   <div *ngIf="submitSuccess == true" class="alert-success">RSVP submitted successfully!</div>
+
+  <div>
+    <ul style="list-style-type:none">
+      <li>
+        In order to RSVP as not coming, submit the form without clicking any checkboxes.<br>
+      </li>
+      <li>
+        The codes provided are not case sensitive and should be entered as one word.
+      </li>
+      <li>
+        If you have any questions feel free to contact Tyler at tyler@aultar.wedding.
+      </li>
+      <li>
+        Thank you so much for being a part of our special day!
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div #rsvpModal class="modal" role="dialog">
@@ -231,7 +248,7 @@
         <button mat-button (click)="onNoClick()">Cancel</button>
         <button mat-raised-button type="button" (click)="submitRSVPForm()">Submit</button>
       </div>
-
     </div>
   </div>
 </div>
+

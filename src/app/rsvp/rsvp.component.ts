@@ -13,10 +13,10 @@ import {Song} from "./Song";
 export class RsvpComponent {
   @ViewChild('rsvpModal') rsvpModal;
   @ViewChild('otherError') otherError;
-  baseUrl: string = "http://test.aultar.wedding:8080";
+  baseUrl: string = "https://aultar.wedding";
   householdExt: string = "households";
   dietaryExt: string = "dietary";
-  updateUrl: string = "http://test.aultar.wedding:8080/households/update";
+  updateUrl: string = "https://aultar.wedding/households/update";
   public household: Household;
   public submitHousehold: Household;
   public dietaryOptions: Dietary[];
